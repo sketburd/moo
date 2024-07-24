@@ -2,7 +2,7 @@
 
 ### 
 
-[jLO::fmt](https://www.google.com) - light "fmt / std::format" substitute.
+[fmt](https://www.google.com) - light  "std::format / fmt" substitute.
 
 ---
 
