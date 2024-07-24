@@ -2,14 +2,7 @@
 
 ### 
 
-[jstring](https://www.google.com) - string wrapper, so we can forward declare std::string
-
-
 [fmt](https://www.google.com) - std::format substitute because g++ is being mean to me
-
-
-[bah](https://www.google.com) - ... build assistant helper, so we can build, clean, and add files to jELLO
-<!-- BLOG-POST-LIST:END -->
 
 ---
 
