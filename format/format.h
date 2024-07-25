@@ -116,7 +116,6 @@ namespace jlo
 	std::string format(const char* formatString, long double value, Args... args);
 	
 	
-	
 
 
 	std::string formatParse(const char* formatString, std::string value);	
