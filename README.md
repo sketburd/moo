@@ -1,5 +1,4 @@
 <h1 align="center">jELLO</h1>
-<h2 align="center">Warning! currently broken 🥴 </h2>
 
 ### 
 
