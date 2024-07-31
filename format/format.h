@@ -1,4 +1,5 @@
 // format.h: light "std::format / fmt" substitute.
+#pragma once
 #include <string>
 
 
@@ -41,281 +42,88 @@ namespace jlo
 {
 
 
-	std::string format(const char* formatString, std::string value); 
+	extern std::string format(const char* formatString, std::string value); 
 	template<typename... Args>
-	std::string format(const char* formatString, std::string value, Args... args);
+	extern std::string format(const char* formatString, std::string value, Args... args);
 
 
 
 
-	std::string format(const char* formatString, const char* value); 
+	extern std::string format(const char* formatString, const char* value); 
 	template<typename... Args>
-	std::string format(const char* formatString, const char* value, Args... args);	
+	extern std::string format(const char* formatString, const char* value, Args... args);	
 
 
 	
 	
-	std::string format(const char* formatString, int value);
+	extern std::string format(const char* formatString, int value);
 	template<typename... Args>
-	std::string format(const char* formatString, int value, Args... args);
+	extern std::string format(const char* formatString, int value, Args... args);
 
 
 	
 	
-	std::string format(const char* formatString, long value); 
+	extern std::string format(const char* formatString, long value); 
 	template<typename... Args>
-	std::string format(const char* formatString, long value, Args... args);
+	extern std::string format(const char* formatString, long value, Args... args);
 	
 	
 	
 	
-	std::string format(const char* formatString, long long value);
+	extern std::string format(const char* formatString, long long value);
 	template<typename... Args>
-	std::string format(const char* formatString, long long value, Args... args);
+	extern std::string format(const char* formatString, long long value, Args... args);
 	
 	
 	
 	
-	std::string format(const char* formatString, unsigned value);
+	extern std::string format(const char* formatString, unsigned value);
 	template<typename... Args>
-	std::string format(const char* formatString, unsigned value, Args... args);
+	extern std::string format(const char* formatString, unsigned value, Args... args);
 	
 	
 	
 	
-	std::string format(const char* formatString, unsigned long value);
+	extern std::string format(const char* formatString, unsigned long value);
 	template<typename... Args>
-	std::string format(const char* formatString, unsigned long value, Args... args);
+	extern std::string format(const char* formatString, unsigned long value, Args... args);
 	
 	
 	
 
-	std::string format(const char* formatString, unsigned long long value);
+	extern std::string format(const char* formatString, unsigned long long value);
 	template<typename... Args>
-	std::string format(const char* formatString, unsigned long long value, Args... args);
+	extern std::string format(const char* formatString, unsigned long long value, Args... args);
 	
 	
 	
 	
-	std::string format(const char* formatString, float value); 
+	extern std::string format(const char* formatString, float value); 
 	template<typename... Args>
-	std::string format(const char* formatString, float value, Args... args);
+	extern std::string format(const char* formatString, float value, Args... args);
 	
 	
 	
 	
-	std::string format(const char* formatString, double value);
+	extern std::string format(const char* formatString, double value);
 	template<typename... Args>
-	std::string format(const char* formatString, double value, Args... args);
+	extern std::string format(const char* formatString, double value, Args... args);
 	
 	
 	
 	
-	std::string format(const char* formatString, long double value);
+	extern std::string format(const char* formatString, long double value);
 	template<typename... Args>
-	std::string format(const char* formatString, long double value, Args... args);
+	extern std::string format(const char* formatString, long double value, Args... args);
+	
 	
 	
 
 
-	std::string formatParse(const char* formatString, std::string value);	
+	extern std::string formatParse(const char* formatString, std::string value);	
 	
 	
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-std::string jlo::format(const char* formatString, std::string value)
-{
-	return formatParse(formatString, value);
-}
-template<typename... Args>
-std::string jlo::format(const char* formatString, std::string value, Args... args)
-{
-	return jlo::format(formatParse(formatString, value).c_str(), args...);
-}
-
-
-
-
-std::string jlo::format(const char* formatString, const char* value) 
-{
-	return formatParse(formatString, std::string(value));
-}
-template<typename... Args>
-std::string jlo::format(const char* formatString, const char* value, Args... args)
-{	
-	return jlo::format(formatParse(formatString, std::string(value)).c_str(), args...);
-}
-
-
-
-
-std::string jlo::format(const char* formatString, int value)
-{
-	return formatParse(formatString, std::to_string(value));
-}
-template<typename... Args>
-std::string jlo::format(const char* formatString, int value, Args... args)
-{	
-	return jlo::format(formatParse(formatString, std::to_string(value)).c_str(), args...);
-}
-
-
-
-
-std::string jlo::format(const char* formatString, long value)
-{
-	return formatParse(formatString, std::to_string(value));
-}
-template<typename... Args>
-std::string jlo::format(const char* formatString, long value, Args... args)
-{	
-	return jlo::format(formatParse(formatString, std::to_string(value)).c_str(), args...);
-}
-
-
-
-
-std::string jlo::format(const char* formatString, long long value)
-{
-	return formatParse(formatString, std::to_string(value));
-}
-template<typename... Args>
-std::string jlo::format(const char* formatString, long long value, Args... args)
-{	
-	return jlo::format(formatParse(formatString, std::to_string(value)).c_str(), args...);
-}
-
-
-
-
-std::string jlo::format(const char* formatString, unsigned value)
-{
-	return formatParse(formatString, std::to_string(value));
-}
-template<typename... Args>
-std::string jlo::format(const char* formatString, unsigned value, Args... args)
-{	
-	return jlo::format(formatParse(formatString, std::to_string(value)).c_str(), args...);
-}
-
-
-
-
-std::string jlo::format(const char* formatString, unsigned long value)
-{
-	return formatParse(formatString, std::to_string(value));
-}
-template<typename... Args>
-std::string jlo::format(const char* formatString, unsigned long value, Args... args)
-{	
-	return jlo::format(formatParse(formatString, std::to_string(value)).c_str(), args...);
-}
-
-
-
-
-std::string jlo::format(const char* formatString, unsigned long long value)
-{
-	return formatParse(formatString, std::to_string(value));
-}
-template<typename... Args>
-std::string jlo::format(const char* formatString, unsigned long long value, Args... args)
-{	
-	return jlo::format(formatParse(formatString, std::to_string(value)).c_str(), args...);
-}
-
-
-
-
-std::string jlo::format(const char* formatString, float value)
-{
-	return formatParse(formatString, std::to_string(value));
-}
-template<typename... Args>
-std::string jlo::format(const char* formatString, float value, Args... args)
-{	
-	return jlo::format(formatParse(formatString, std::to_string(value)).c_str(), args...);
-}
-
-
-
-
-std::string jlo::format(const char* formatString, double value)
-{
-	return formatParse(formatString, std::to_string(value));
-}
-template<typename... Args>
-std::string jlo::format(const char* formatString, double value, Args... args)
-{	
-	return jlo::format(formatParse(formatString, std::to_string(value)).c_str(), args...);
-} 
- 
- 
- 
- 
-std::string jlo::format(const char* formatString, long double value)
-{
-	return formatParse(formatString, std::to_string(value));
-}
-template<typename... Args>
-std::string jlo::format(const char* formatString, long double value, Args... args)
-{	
-	return jlo::format(formatParse(formatString, std::to_string(value)).c_str(), args...);
-}
-
-
-
-
-// Based on a picture of the Boyer–Moore string-search algorithm.
-//
-//                            P A N A M A -
-//
-//                            N A M - - - -
-//                
-//                            - N A M - - -
-//
-//                            - - N A M - -
-//
-//                            - - - N A M -
-//
-std::string jlo::formatParse(const char* formatString, std::string value)
-{
-	std::string retStr("");
-	
-	for (int index = 0; formatString[index + 1] != '\0' ; ++index)
-	{
-		if (formatString[index] == '{' && formatString[index + 1] == '}')
-		{
-			retStr += value;
-			
-			if (formatString[index + 2] != '\0')
-			{			
-				retStr += &(formatString[index + 2]);
-			}
-
-			return retStr;
-		}
-		
-		retStr += formatString[index];
-	}
-	
-	return retStr;
-}
 
 
 
@@ -351,5 +159,4 @@ std::cout << jlo::format("a:{}\nb:{}\n0:{}\n1:{}\n2:{}\n3:{}\n4:{}\n5:{}\n6.0000
 // 8.000000:8.000000
 
 */
-
 
