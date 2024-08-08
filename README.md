@@ -1,9 +1,9 @@
-<h1 align="center">jELLO</h1>
+<h1 align="center">moo</h1>
 
 
 ### 
 
-[jlo:format](https://github.com/Ar13l-x07/jELLO/blob/main/format/format.h) - light  "std::format / fmt" substitute.
+[moo::format](https://github.com/Ar13l-x07/moo/blob/main/format/format.h) - light  "std::format / fmt" substitute.
 
 ---
 
