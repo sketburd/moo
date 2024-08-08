@@ -1,6 +1,4 @@
 // format.h: light "std::format / fmt" substitute.
-
-/*
 #pragma once
 #include <string>
 
@@ -43,151 +41,19 @@
 namespace jlo
 {
 
-
-	inline std::string formatParse(const char* formatString, std::string value);	
-
-
-
-
-	inline std::string format(const char* formatString, std::string value)
-	{
-		return formatParse(formatString, value);
-	} 
-	template<typename... Args>
-	inline std::string format(const char* formatString, std::string value, Args... args)
-	{
-		return format(formatParse(formatString, value).c_str(), args...);
-	}
-
-
-
-
-	inline std::string format(const char* formatString, const char* value)
-	{
-		return formatParse(formatString, std::string(value));
-	} 
-	template<typename... Args>
-	inline std::string format(const char* formatString, const char* value, Args... args)
-	{	
-		return format(formatParse(formatString, std::string(value)).c_str(), args...);
-	}	
-
-
-
-
-	inline std::string format(const char* formatString, int value)
-	{
-		return formatParse(formatString, std::to_string(value));
-	}
-	template<typename... Args>
-	inline std::string format(const char* formatString, int value, Args... args)
-	{	
-		return format(formatParse(formatString, std::to_string(value)).c_str(), args...);
-	}
-
-
-
-
-	inline std::string format(const char* formatString, long value)
-	{
-		return formatParse(formatString, std::to_string(value));
-	} 
-	template<typename... Args>
-	inline std::string format(const char* formatString, long value, Args... args)
-	{	
-		return format(formatParse(formatString, std::to_string(value)).c_str(), args...);
-	}
-
-
-
-
-	inline std::string format(const char* formatString, long long value)
-	{
-		return formatParse(formatString, std::to_string(value));
-	}
-	template<typename... Args>
-	inline std::string format(const char* formatString, long long value, Args... args)
-	{	
-		return format(formatParse(formatString, std::to_string(value)).c_str(), args...);
-	}
-
-
-
-
-	inline std::string format(const char* formatString, unsigned value)
-	{
-		return formatParse(formatString, std::to_string(value));
-	}
-	template<typename... Args>
-	inline std::string format(const char* formatString, unsigned value, Args... args)
-	{	
-		return format(formatParse(formatString, std::to_string(value)).c_str(), args...);
-	}
-
-
-
-
-	inline std::string format(const char* formatString, unsigned long value)
-	{
-		return formatParse(formatString, std::to_string(value));
-	}
-	template<typename... Args>
-	inline std::string format(const char* formatString, unsigned long value, Args... args)
-	{	
-		return format(formatParse(formatString, std::to_string(value)).c_str(), args...);
-	}
-
-
-
-
-	inline std::string format(const char* formatString, unsigned long long value)
-	{
-		return formatParse(formatString, std::to_string(value));
-	}
-	template<typename... Args>
-	inline std::string format(const char* formatString, unsigned long long value, Args... args)
-	{	
-		return format(formatParse(formatString, std::to_string(value)).c_str(), args...);
-	}
-
-
-
-
-	inline std::string format(const char* formatString, float value)
-	{
-		return formatParse(formatString, std::to_string(value));
-	} 
-	template<typename... Args>
-	inline std::string format(const char* formatString, float value, Args... args)
-	{	
-		return format(formatParse(formatString, std::to_string(value)).c_str(), args...);
-	}
-
-
-
-
-	inline std::string format(const char* formatString, double value)
-	{
-		return formatParse(formatString, std::to_string(value));
-	}
-	template<typename... Args>
-	inline std::string format(const char* formatString, double value, Args... args)
-	{	
-		return format(formatParse(formatString, std::to_string(value)).c_str(), args...);
-	}
-
-
-
-
-	inline std::string format(const char* formatString, long double value)
-	{
-		return formatParse(formatString, std::to_string(value));
-	}
-	template<typename... Args>
-	inline std::string format(const char* formatString, long double value, Args... args)
-	{	
-		return format(formatParse(formatString, std::to_string(value)).c_str(), args...);
-	}
+	
+	inline std::string to_string(std::string arg)        { return arg;                 }
+	inline std::string to_string(const char* arg)        { return std::string(arg);    }
+	inline std::string to_string(char arg)               { return std::string(1, arg); }
+	inline std::string to_string(int arg)                { return std::to_string(arg); }
+	inline std::string to_string(long arg)               { return std::to_string(arg); }
+	inline std::string to_string(long long arg)          { return std::to_string(arg); }
+	inline std::string to_string(unsigned arg)           { return std::to_string(arg); }
+	inline std::string to_string(unsigned long arg)      { return std::to_string(arg); }
+	inline std::string to_string(unsigned long long arg) { return std::to_string(arg); }
+	inline std::string to_string(float arg)              { return std::to_string(arg); }
+	inline std::string to_string(double arg)             { return std::to_string(arg); }
+	inline std::string to_string(long double arg)        { return std::to_string(arg); }
 	
 	
 	
@@ -204,10 +70,10 @@ namespace jlo
 	//
 	//                            - - - N A M -
 	//
-	inline std::string formatParse(const char* formatString, std::string value)
+	inline std::string formatParse(const char* formatString, std::string value);
 	{
 		std::string retStr("");
-
+		
 		for (int index = 0; formatString[index + 1] != '\0' ; ++index)
 		{
 			if (formatString[index] == '{' && formatString[index + 1] == '}')
@@ -227,14 +93,23 @@ namespace jlo
 
 		return retStr;
 	}
+	
+	
+	
+	
+	template<typename T>	
+	inline std::string format(const char* formatString, T t)
+	{
+		return formatParse(formatString, to_string(t));
+	}
+	template<typename T, typename... Args>
+	inline std::string format(const char* formatString, T t, Args... args)
+	{
+		return format(formatParse(formatString, to_string(t)).c_str(), args...);
+	}
 
 
 }
-
-
-
-
-
 
 
 
@@ -251,9 +126,10 @@ unsigned long long h = 5;
 float i = 6;
 double j = 7;
 long double k = 8;
-	
-	
-std::cout << jlo::format("a:{}\nb:{}\n0:{}\n1:{}\n2:{}\n3:{}\n4:{}\n5:{}\n6.000000:{}\n7.000000:{}\n8.000000:{}\n", a, b, c, d, e, f, g, h, i, j, k);
+char m = '9';
+
+jlo::format("a:{}\nb:{}\n0:{}\n1:{}\n2:{}\n3:{}\n4:{}\n5:{}\n6.000000:{}\n7.000000:{}\n8.000000:{}\n9:{}\n", a, b, c, d, e, f, g, h, i, j, k, m);
+
 
 // Expected Output:
 // a:a
@@ -267,5 +143,6 @@ std::cout << jlo::format("a:{}\nb:{}\n0:{}\n1:{}\n2:{}\n3:{}\n4:{}\n5:{}\n6.0000
 // 6.000000:6.000000
 // 7.000000:7.000000
 // 8.000000:8.000000
+// 9:9
 
 */
