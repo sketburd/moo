@@ -1,4 +1,6 @@
 // format.h: light "std::format / fmt" substitute.
+
+/*
 #pragma once
 #include <string>
 
