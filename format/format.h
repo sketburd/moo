@@ -70,7 +70,7 @@ namespace moo
 	//
 	//                            - - - N A M -
 	//
-	inline std::string formatParse(const char* formatString, std::string value);
+	inline std::string formatParse(const char* formatString, std::string value)
 	{
 		std::string retStr("");
 		
