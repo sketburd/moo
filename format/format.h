@@ -128,7 +128,7 @@ double j = 7;
 long double k = 8;
 char m = '9';
 
-moo::format("a:{}\nb:{}\n0:{}\n1:{}\n2:{}\n3:{}\n4:{}\n5:{}\n6.000000:{}\n7.000000:{}\n8.000000:{}\n9:{}\n", a, b, c, d, e, f, g, h, i, j, k, m);
+std::cout << moo::format("a:{}\nb:{}\n0:{}\n1:{}\n2:{}\n3:{}\n4:{}\n5:{}\n6.000000:{}\n7.000000:{}\n8.000000:{}\n9:{}\n", a, b, c, d, e, f, g, h, i, j, k, m);
 
 
 // Expected Output:
