@@ -36,6 +36,10 @@
 //     moo::format("{} bars for sale! ${}", "Chocolate", 1);
 //     - returns: "Chocolate bars for sale! $1"
 //
+// Online Help:
+//
+// 	https://ar13l-x07.github.io/moo/format.html
+//
 
 
 namespace moo
