@@ -3,7 +3,7 @@
 
 ### 
 
-[moo::format](https://github.com/Ar13l-x07/moo/blob/main/format/format.h) - light  "std::format / fmt" substitute.
+[moo::format](https://ar13l-x07.github.io/moo/format.html) - light  "std::format / fmt" substitute.
 
 ---
 
