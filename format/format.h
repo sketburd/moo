@@ -1,3 +1,9 @@
+// MIT License
+// Copyright 2024 Tonia Sanzo
+
+
+
+
 // format.h: light "std::format / fmt" substitute.
 #pragma once
 #include <string>
