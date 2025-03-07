@@ -1,5 +1,4 @@
-// ordered_map.h: A light map ordered by insertion. Compatible with C++ version 20 
-//                and higher.
+// ordered_map.h: A map ordered by insertion.
 #pragma once
 #include <iterator>
 #include <map>
