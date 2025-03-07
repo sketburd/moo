@@ -3,7 +3,8 @@
 
 ### 
 
-[moo::format](https://ar13l-x07.github.io/moo/format.html) - light  "std::format / fmt" substitute.
+[moo::format](https://ar13l-x07.github.io/moo/format.html)      - light "std::format / fmt" substitute.
+[moo::ordered_map](https://github.com/ar13l-x07/moo/blob/main/containers/ordered_map.h) - Map ordered by insertion
 
 ---
 
