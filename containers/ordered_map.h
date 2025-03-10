@@ -1,3 +1,10 @@
+// MIT License
+// Copyright 2024-2025 Tonia Sanzo
+
+
+
+
+
 // ordered_map.h: A map ordered by insertion.
 #pragma once
 #include <iterator>
@@ -5,6 +12,8 @@
 #include <stdexcept>
 #include <utility>
 #include <vector>
+
+
 
 
 // moo::ordered_map is a map ordered by insertion, like a stack or queue.
@@ -43,6 +52,7 @@
 namespace moo
 {
 
+
   template <typename Key, typename Value>
   class ordered_map
   {
@@ -60,7 +70,7 @@ namespace moo
     {
       if (keys.find(key) != keys.end())
       {
-        throw std::runtime_error("Error : Unable to push_back existing key."); 
+        throw std::runtime_error("253 : Error : Unable to push_back existing key."); 
       }
       
       values.push_back(std::make_pair(key, value));
@@ -79,7 +89,7 @@ namespace moo
     {
       if (keys.find(key) == keys.end())
       {
-        throw std::runtime_error("Error : Key not found."); 
+        throw std::runtime_error("404 : Error : Key not found."); 
       }
       return std::get<1>(values[keys[key]]);
     }
@@ -115,6 +125,7 @@ namespace moo
 
 
 /* Unit Tests:
+
 moo::ordered_map<std::string, int> map;
 if (map.empty()) 
 { 
@@ -180,6 +191,7 @@ catch (std::exception& e)
 {
   std::cout << "E2:\n" <<  e.what() << "\n";
 }
+
 std::cout << "fin" << std::endl;
 
 // Expected Output:
@@ -207,4 +219,3 @@ std::cout << "fin" << std::endl;
 // fin
 
 */
-
